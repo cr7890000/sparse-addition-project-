@@ -1,7 +1,10 @@
 # sparse-addition-project-
 #include<stdio.h>
+
 #include<stdlib.h>
+
 #define max 5
+
 int main()
 {
 	int matrix[max][max];
