@@ -7,30 +7,43 @@
 #define max 5
 
 int main()
+
 {
-	int matrix[max][max];
-	int spmatrix[max][3];
-	int matrix1[max][max];
-    int matrix2[max][max];
-	int spmatrix1[max][3];
-	int amatrix[max][3];
-	int i,j,k,row,r,c,col;
-	printf("Enter the order of sparse matrix 1\n");
-	scanf("%d%d",&row,&col);
-	printf("Enter the element of the sparse matrix 1\n");
-	for(i=0;i<row;i++)
+	
+ int matrix[max][max];
+ 
+ int spmatrix[max][3];
+ 
+int matrix1[max][max];
+ 
+   
+int matrix2[max][max];
+    
+ int spmatrix1[max][3];
+	
+int amatrix[max][3];
+	
+ int i,j,k,row,r,c,col;
+	
+ printf("Enter the order of sparse matrix 1\n");
+	
+ scanf("%d%d",&row,&col);
+	
+ printf("Enter the element of the sparse matrix 1\n");
+ 
+for(i=0;i<row;i++)
 	for(j=0;j<col;j++)
 		scanf("%d",&matrix[i][j]);
 		
 		printf(" Matrix 1\n");
 		
- 	for(i=0;i<row;i++){
+ for(i=0;i<row;i++){
 	for(j=0;j<col;j++){
 		printf("%d\t",matrix[i][j]);  }
 			printf("\n");
 		}
 		
-	k=1;
+k=1;
 	for(i=0;i<row;i++)
 	for(j=0;j<col;j++)
 	if(matrix[i][j]!=0)
@@ -44,7 +57,7 @@ int main()
 	spmatrix[0][1]=col;
 	spmatrix[0][2]=k-1;
 	
-	printf("Enter the order of sparse matrix 2\n");
+printf("Enter the order of sparse matrix 2\n");
 	scanf("%d%d",&r,&c);
 	printf("Enter the element of the sparse matrix 2\n");
 	for(i=0;i<r;i++)
@@ -53,13 +66,13 @@ int main()
 		
 		printf(" Matrix 2\n");
 		
- 	for(i=0;i<r;i++){
+ for(i=0;i<r;i++){
 	for(j=0;j<c;j++){
 		printf("%d\t",matrix1[i][j]);  }
 			printf("\n");
 		}
 		
-	k=1;
+k=1;
 	for(i=0;i<r;i++)
 	for(j=0;j<c;j++)
 	if(matrix1[i][j]!=0)
@@ -75,7 +88,7 @@ int main()
 	
 	
 
-	printf("ELEMENTS OF THE SPARSE MATRIX 1 \n");
+printf("ELEMENTS OF THE SPARSE MATRIX 1 \n");
 	printf("row\tcolumn\tnon zero\n");
 	for(i=0;i<=spmatrix[0][2];i++)
 	{
@@ -85,16 +98,16 @@ int main()
 		printf("\n");
 	}
 	
-	printf("ELEMENTS OF THE SPARSE MATRIX 2 \n");
+printf("ELEMENTS OF THE SPARSE MATRIX 2 \n");
 	printf("row\tcolumn\tnon zero\n");
 	for(i=0;i<=spmatrix1[0][2];i++)
 	{
 		for(j=0;j<3;j++)
 			printf("%d\t",spmatrix1[i][j]);
 
-		printf("\n");
-	}
-	i=1;
+	printf("\n");
+}
+i=1;
 	j=1;
 	k=1;
 	if(spmatrix[0][0]==spmatrix1[0][0]&&spmatrix[0][1]==spmatrix1[0][1])
@@ -109,8 +122,8 @@ int main()
 	            j++;
 	            k++;
 	            
-	        }
-	        else if(spmatrix[i][0]==spmatrix1[j][0]){
+	 }
+else if(spmatrix[i][0]==spmatrix1[j][0]){
 	            if(spmatrix[i][1]<spmatrix1[j][1]){
 	                amatrix[k][0]=spmatrix[i][0];
 	            amatrix[k][1]=spmatrix[i][1];
@@ -120,7 +133,7 @@ int main()
 	            }
 	            else
 	            
-	            {
+ {
 	                amatrix[k][0]=spmatrix1[j][0];
 	            amatrix[k][1]=spmatrix1[j][1];
 	            amatrix[k][2]=spmatrix1[j][2];
@@ -138,7 +151,7 @@ int main()
 	            }
 	            else
 	            
-	            {
+ {
 	                amatrix[k][0]=spmatrix1[j][0];
 	            amatrix[k][1]=spmatrix1[j][1];
 	            amatrix[k][2]=spmatrix1[j][2];
@@ -149,7 +162,7 @@ int main()
 	        }
 	    }
 	    
-	    while(i<r){
+ while(i<r){
 	         amatrix[k][0]=spmatrix[i][0];
 	            amatrix[k][1]=spmatrix[i][1];
 	            amatrix[k][2]=spmatrix[i][2];
@@ -166,8 +179,7 @@ int main()
 	    amatrix[0][0]=spmatrix[0][0];
 	            amatrix[0][1]=spmatrix[0][1];
 	            amatrix[0][2]=k-1;
-	    
-	}
+	    }
 	else{
 	    printf("\nMatrix are not suitable for addition\n");
 	}
@@ -175,20 +187,20 @@ int main()
 	printf("ELEMENTS OF THE SPARSE MATRIX 3 \n");
 	printf("row\tcolumn\tnon zero\n");
 	for(i=0;i<=amatrix[0][2];i++)
-	{
+{
 		for(j=0;j<3;j++)
 			printf("%d\t",amatrix[i][j]);
 
-		printf("\n");
-	}
+  printf("\n");
+}
 	
-	for(i=0;i<r;i++)
+for(i=0;i<r;i++)
 	  for(j=0;j<c;j++)
 	        matrix2[i][j]=matrix1[i][j]+matrix[i][j];
 	        
-	printf(" Matrix sum\n");
+printf(" Matrix sum\n");
 		
- 	for(i=0;i<row;i++){
+ for(i=0;i<row;i++){
 	for(j=0;j<col;j++){
 		printf("%d\t",matrix2[i][j]);  }
 			printf("\n");
@@ -196,5 +208,5 @@ int main()
 	        
 	 
 	
-	return 0;
+return 0;
 }
